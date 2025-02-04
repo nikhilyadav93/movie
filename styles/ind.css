@@ -1,0 +1,346 @@
+/* search bar css */
+
+
+.search-container {
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    /* overflow: hidden; */
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    background-color: #fff;
+    position: relative;
+    /* Added for absolute positioning of suggestions */
+}
+
+.search-container:focus-within {
+    border-color: #699370;
+    box-shadow: 0 4px 8px rgba(105, 147, 112, 0.25);
+}
+
+.search-input {
+    flex-grow: 1;
+    padding: 12px 16px;
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-size: 16px;
+    color: #333;
+    background-color: transparent;
+}
+
+.search-input::-ms-expand {
+    display: none;
+}
+
+.search-button {
+    background-color: #e67e22;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 0 25px 25px 0;
+    transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #217dbb;
+}
+
+.suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 4px;
+    margin-top: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: none;
+    /* Initially Hide suggestions */
+    z-index: 1;
+}
+
+.suggestions.show {
+    display: block;
+    /* Show suggestions when 'show' class is added */
+}
+
+.suggestions li {
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    /* Make list items clickable */
+}
+
+.suggestions li:hover {
+    background-color: #f0f0f0;
+}
+
+
+
+/* button */
+.btn {
+    font-size: 25px;
+    margin: 10px;
+    width: 40%;
+    padding: 15px 5px;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 12px;
+}
+
+.btn::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background-color: grey;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+/* glow */
+.btn::after {
+    content: "";
+    background: linear-gradient(45deg,
+            #550404, #5a2e0a, #500436, #03681c,
+            #010a09, #002BFF, #6d0356, #660303);
+
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 600%;
+    z-index: -1;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+    opacity: 0;
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+/* hover */
+.btn:hover {
+    background-color: #000000;
+}
+
+.btn::after {
+    opacity: 0.9;
+}
+
+.btn:active:after {
+    background: orange;
+}
+
+.btn:active {
+    color: #000;
+    font-weight: bold;
+}
+
+
+
+
+
+
+/*body*/
+
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a;
+    color: #fff;
+    line-height: 1.6;
+}
+
+/* Header styles */
+header {
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    color: #fff;
+    font-size: 36px;
+}
+
+/* Navigation styles */
+nav ul {
+    list-style: none;
+    margin-top: 10px;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: #e67e22;
+}
+
+/* Home section styles */
+#home {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #222;
+}
+
+#home h2 {
+    font-size: 30px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    color: #f39c12;
+}
+
+/* Movie list container - 2 columns */
+.movie-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* Two columns */
+    gap: 30px;
+    justify-items: center;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .movie-list {
+        grid-template-columns: repeat(2, 1fr);
+        /* One column on smaller screens */
+    }
+}
+
+/* Movie card styles */
+.movie {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+    transition: transform 0.3s ease;
+}
+
+.movie img {
+    max-width: 100%;
+    border-radius: 10px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.movie h3 {
+    margin-top: 10px;
+    color: #fff;
+}
+
+.movie a {
+    display: block;
+    margin-top: 15px;
+    padding: 8px;
+    background-color: #e67e22;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.movie a:hover {
+    background-color: #217dbb;
+}
+
+.movie:hover {
+    transform: scale(1.05);
+}
+
+/* About section styles */
+#about {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #333;
+}
+
+#about h2 {
+    font-size: 28px;
+    color: #f39c12;
+    margin-bottom: 20px;
+}
+
+#about p {
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.8;
+}
+
+/* Contact section styles */
+#contact {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #222;
+}
+
+#contact h2 {
+    font-size: 28px;
+    color: #f39c12;
+    margin-bottom: 20px;
+}
+
+#contact p {
+    font-size: 18px;
+    color: #fff;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+footer p {
+    font-size: 16px;
+}
