@@ -27,6 +27,7 @@ const movies = {
     const movieListDiv = document.getElementById("movieList");
     movieListDiv.innerHTML = '';  // Clear existing movies
     const page = window.location.pathname.split('/').pop().split('.').shift();
+        console.log(page);
     const movieCategory = movies[page];
     if (movieCategory) {
     movieCategory.forEach(movie => {
