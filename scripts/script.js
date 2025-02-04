@@ -26,7 +26,7 @@ const movies = {
     function loadMovies() {
     const movieListDiv = document.getElementById("movieList");
     movieListDiv.innerHTML = '';  // Clear existing movies
-    const page = (window.location.pathname.split('/').pop().split('.').shift()==bollywood)?bollywood:index;
+    const page = window.location.pathname.split('/').pop().split('.').shift();
     const movieCategory = movies[page];
     if (movieCategory) {
     movieCategory.forEach(movie => {
