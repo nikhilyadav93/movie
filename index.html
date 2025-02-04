@@ -1,33 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Simple Webpage</title>
+    <meta name="description" content="Download Filmyworld free full movies, high quality movies, latest movies from Filmyworld. Filmyworld is number one entertainment hollywood bollywood website ...">
+    <title>FilmyWorld</title>
+    <link rel="stylesheet" href="styles/ind.css">
 </head>
 <body>
     <header>
-        <h1>Welcome to My Simple Webpage</h1>
-    </header>
-
-    <main>
-        <section>
-            <h2>About Me</h2>
-            <p>Hello! This is a simple HTML page. I am learning how to create websites.</p>
-        </section>
-
-        <section>
-            <h2>My Hobby</h2>
+        <h1>Filmyworld.com</h1>
+        <nav>
             <ul>
-                <li>Coding</li>
-                <li>Reading Books</li>
-                <li>Traveling</li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
             </ul>
-        </section>
-    </main>
+        </nav>
+    </header>
+        <div class="search-container">
+            <input type="text" class="search-input" name="title" placeholder="Search Popular Movies..." id="searchInput" onkeyup="searchMovies()">
+            <button type="submit" class="search-button" onclick="searchMovies()">Search</button>
+	    <ul class="suggestions" id="suggestionList"></ul>
+        </div>
+
+    <section id="home">
+
+        <button class="btn" onclick="window.location.href='bollywood.html'">Bollywood</button>
+        <button class="btn" onclick="window.location.href='hollywood.html'">Hollywood</button>
+        <button class="btn" onclick="window.location.href='tollywood.html'">Tollywood</button>
+        <button class="btn" onclick="window.location.href='webseries.html'">WebSeries</button>
+
+        <h2>Popular Movies</h2>
+        <div id="movieList" class="movie-list">
+          <!--load movies dynamically-->
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About</h2>
+        <p>This website offers a collection of movies for you to enjoy. The movies are free to download and watch at
+            your leisure.</p>
+    </section>
+
 
     <footer>
-        <p>&copy; 2025 My Simple Webpage</p>
+        <p>&copy; 2025 My Movie Website</p>
     </footer>
+
+    <script type="text/javascript" src="scripts/script.js"> </script>
 </body>
+
 </html>
