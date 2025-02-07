@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Download Filmyworld free full movies, high quality movies, latest movies from Filmyworld. Filmyworld is number one entertainment hollywood bollywood website ...">
-    <title>FilmyWorld</title>
+    <title>My Movie Website</title>
     <link rel="stylesheet" href="styles/ind.css">
 </head>
+
 <body>
     <header>
         <h1>Filmyworld.com</h1>
@@ -18,23 +18,38 @@
             </ul>
         </nav>
     </header>
+    <form id="searchForm" action="searchedmoviepage.html" method="GET">
         <div class="search-container">
-            <input type="text" class="search-input" name="title" placeholder="Search Popular Movies..." id="searchInput" onkeyup="searchMovies()">
-            <button type="submit" class="search-button" onclick="searchMovies()">Search</button>
-	    <ul class="suggestions" id="suggestionList"></ul>
+
+            <input type="text" class="search-input" name="title" placeholder="Search..." id="searchInput">
+            <button type="submit" class="search-button">Search</button>
+            <ul class="suggestions" id="suggestionList"></ul>
         </div>
+    </form>
+
 
     <section id="home">
 
-        <button class="btn" onclick="window.location.href='bollywood.html'">Bollywood</button>
-        <button class="btn" onclick="window.location.href='hollywood.html'">Hollywood</button>
-        <button class="btn" onclick="window.location.href='tollywood.html'">Tollywood</button>
-        <button class="btn" onclick="window.location.href='webseries.html'">WebSeries</button>
+        <button class="btn" onclick="window.location.href ='bollywood.html'">Bollywood</button>
+        <button class="btn" onclick="window.location.href ='hollywood.html'">Hollywood</button>
+        <button class="btn" onclick="window.location.href ='tollywood.html'">Tollywood</button>
+        <button class="btn" onclick="window.location.href ='webseries.html'">WebSeries</button>
 
-        <h2>Popular Movies</h2>
-        <div id="movieList" class="movie-list">
-          <!--load movies dynamically-->
+        <h2>Bollywood Movies</h2>
+        <div class="movie-list" id="movieList1">
+           
         </div>
+
+        <h2>Tollywood Movies</h2>
+        <div class="movie-list" id="movieList2">
+            
+        </div>
+
+        <h2>Hollywood Movies</h2>
+        <div class="movie-list" id="movieList3">
+           
+        </div>
+        
     </section>
 
     <section id="about">
@@ -48,7 +63,7 @@
         <p>&copy; 2025 My Movie Website</p>
     </footer>
 
-    <script type="text/javascript" src="scripts/script.js"> </script>
+    <script type="text/javascript" src="scripts/ind.js"></script>
 </body>
 
 </html>
